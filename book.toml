@@ -1,0 +1,8 @@
+[book]
+title = "PM Playbook — 產品經理決策手冊 2026"
+author = "Eddy Kuo"
+language = "zh-TW"
+src = "."
+
+[build]
+build-dir = "../book-dist/pm-playbook"

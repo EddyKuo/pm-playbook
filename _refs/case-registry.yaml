@@ -1,0 +1,505 @@
+# PM Playbook Case Registry
+#
+# 所有章節案例必須先在此註冊才能在內文使用。
+# 政策：純虛構公司名/產品名/數字，但商業邏輯與商業決策必須真實可驗證。
+# ID 格式：CASE-{DOMAIN}-{NNN}
+# DOMAIN 代碼：FIN(fintech) / ECM(ecommerce) / HCR(healthcare) / SAS(saas) / ENR(energy)
+# 注意：與 SA/SD playbook 的案例 ID 共享格式，但本書自行管理；兩書案例可互相引用但需標注來源。
+
+cases:
+  # ========== Ch 1 ==========
+  - id: CASE-SAS-101
+    title: "Loopline 的需求會議：50 個需求，沒有一個問題"
+    domain: saas
+    chapters: [ch-01]
+    anonymized: true
+    summary: |
+      虛構 SaaS 新創 Loopline：PM 在季度規劃時收到來自 Sales、CS、CEO
+      三方共 50 條需求清單，每一條都是「最重要的」。
+      Sprint 1 啟動後兩週，工程師交付了功能，但沒有一條真正解決使用者的核心問題。
+      用於展示「問題探索比解決方案選擇更重要」。
+
+  # ========== Ch 2 ==========
+  - id: CASE-FIN-101
+    title: "ClearPay 的上線審批：最後一分鐘的否決"
+    domain: fintech
+    chapters: [ch-02]
+    anonymized: true
+    summary: |
+      虛構 Fintech ClearPay：支付功能開發完成後，Legal 在上線前三天
+      發現 KYC 合規問題，整個 sprint 暫停。PM 事前未將 Legal 列為 stakeholder。
+      用於展示「Stakeholder mapping 必須在需求收集前完成」。
+
+  # ========== Ch 3 ==========
+  - id: CASE-ECM-101
+    title: "ShopFlow 的 OKR 悖論：指標達成，使用者流失"
+    domain: ecommerce
+    chapters: [ch-03]
+    anonymized: true
+    summary: |
+      虛構電商 ShopFlow：Q3 OKR 目標是「結帳轉換率提升 15%」，達成了。
+      但同期 NPS 下降 12 點，因為 PM 移除了「稍後購買」功能以強迫轉換。
+      用於展示「指標可以被操縱；OKR 需要配套護欄指標」。
+
+  # ========== Ch 5 ==========
+  - id: CASE-HCR-101
+    title: "CareRoute 醫療系統 JCI 認證週期的 Sprint 優先序錯位事件"
+    domain: healthcare
+    chapters: [ch-05]
+    anonymized: true
+    summary: |
+      虛構醫院資訊系統廠商 CareRoute（服務 12 家區域醫院、產品為 HIS 整合
+      平台）：PM 林佳蓉用 MoSCoW 對齊三個月 roadmap，護理部代表缺席對齊會，
+      藥單列印格式需求被標為 Should Have。Sprint 3 完成後 sprint review，
+      IT 主任揭露 JCI 認證截止日在 12 月，藥單格式不符合 Medication
+      Management 3.2.1 標準，直接影響認證評分。根因為 MoSCoW 沒有量化定義、
+      DACI 的 Approver 未明確、合規截止日未轉換為時間約束條件。
+      用於展示「排序框架選擇之前，決策結構（DACI + 截止日）才是真正的
+      優先順序問題」。
+
+  # ========== Ch 8 ==========
+  - id: CASE-SAS-102
+    title: "Teamline 的 Spec 事故：工程師做了 PM 以為沒人會做的選擇"
+    domain: saas
+    chapters: [ch-08]
+    anonymized: true
+    summary: |
+      虛構 SaaS Teamline：PM 在規格裡寫「系統要快速回應」，工程師選擇
+      移除所有伺服器端 validation 以換取速度。上線後資料損毀。
+      用於展示「可執行規格必須包含約束條件（constraints），不只是功能描述」。
+
+  # ========== Ch 11 ==========
+  - id: CASE-ECM-102
+    title: "PrimeCart 的架構夾縫：PM 與 SA 各說各話"
+    domain: ecommerce
+    chapters: [ch-11, ch-22]
+    anonymized: true
+    summary: |
+      虛構電商 PrimeCart：PM 要求「即時庫存顯示」，SA 設計了 eventual consistency
+      方案（延遲 3 秒）。上線後客服湧入「庫存顯示錯誤」投訴。
+      兩方都沒有錯，但沒有共同語言來定義「即時」。
+      用於展示 PM × SA 接口的「術語對齊」需求。Ch 22 為第二次引用，
+      延伸至黑色星期五大促庫存顯示事故與事後術語定義表補錄場景。
+
+  # ========== Ch 22 ==========
+  - id: CASE-FIN-102
+    title: "FastLend 的技術債提案：工程師說三個月，CEO 說下季再說"
+    domain: fintech
+    chapters: [ch-22, ch-30]
+    anonymized: true
+    summary: |
+      虛構 Fintech FastLend：核心授信引擎跑在 2019 年的單體上，
+      工程師估計重構需要 12 週。PM 要將這個需求排入 roadmap，
+      但 CEO 問「用戶感受得到嗎？」後拒絕。
+      用於展示「技術債的 PM 語言：如何將工程風險翻譯成業務決策」。
+
+  # ========== Ch 6 ==========
+  - id: CASE-ECM-103
+    title: "CartFlow PM 的週一早上：六個 Slack 頻道、三個緊急標籤、零個決策"
+    domain: ecommerce
+    chapters: [ch-06]
+    anonymized: true
+    summary: |
+      虛構電商平台 CartFlow：新加入的 PM 面對沒有結構的每日工作，
+      每天回覆訊息 4 小時、開會 3 小時，卻不知道自己是否推進了正確的事。
+      月底回顧發現 roadmap 上只完成 2/8 個目標，但 PM 覺得「很忙」。
+      用於展示「PM 必須主動設計自己的工作節奏，而非被通知驅動」。
+
+  # ========== Ch 8 ==========
+  - id: CASE-SAS-104
+    title: "Taskline 的錯誤時機：競品發布後才發現自己做了同一件事"
+    domain: saas
+    chapters: [ch-08]
+    anonymized: true
+    summary: |
+      虛構 SaaS Taskline：PM 花三個月開發「Smart Inbox」功能，
+      上線前兩週發現競品已推出相似功能，且已獲正面評價。
+      事後發現 PM 從未建立競品監控機制，僅靠 Sales 轉述消息。
+      用於展示「競品情報必須是持續的系統性工作，不是偶發的資訊蒐集」。
+
+  # ========== Ch 9 ==========
+  - id: CASE-HCR-102
+    title: "MedNow 的 NPS 黑洞：57 分的問卷，沒有人知道下一步"
+    domain: healthcare
+    chapters: [ch-09]
+    anonymized: true
+    summary: |
+      虛構醫療 SaaS MedNow：每季發送 NPS 問卷，回收率 40%，NPS 57 分。
+      CS 看了說「還不錯」，PM 看了說「不知道怎麼用」，工程師沒人看。
+      整個回饋流的終點是一份 PDF 報告，躺在 Google Drive 從未被行動。
+      用於展示「客戶回饋管理的價值在於行動閉環，不在於蒐集數量」。
+
+  # ========== Ch 18 ==========
+  - id: CASE-ECM-104
+    title: "PrimeCart 的靜默上線：功能做好了，沒有人知道怎麼賣"
+    domain: ecommerce
+    chapters: [ch-18]
+    anonymized: true
+    summary: |
+      虛構電商 PrimeCart：PM 準時交付了「多店鋪管理」功能，
+      工程完成、QA 通過、上線成功。但 Sales 沒有 Demo 腳本、
+      Support 沒有 FAQ、大客戶沒有被提前通知。
+      上線後兩週，客服收到 80 張工單，全是「這個功能怎麼用」。
+      用於展示「GTM 協調是 PM 的責任，不是 Marketing 的責任」。
+
+  # ========== Ch 28 ==========
+  - id: CASE-FIN-103
+    title: "FastLend 的 QBR 現場：PM 報告了功能，CEO 問的是業務"
+    domain: fintech
+    chapters: [ch-28]
+    anonymized: true
+    summary: |
+      虛構 Fintech FastLend：PM 在季度 QBR 準備了詳細的功能上線清單，
+      投影片 22 頁，含 sprint 速度、bug 修復率、上線功能數。
+      CEO 第三頁就問：「這些功能讓我們的放款量成長了多少？」
+      PM 沒有答案。會後 CEO 評語：「我不知道 PM 在做什麼」。
+      用於展示「向上匯報必須用業務語言，不是工程語言」。
+
+  # ========== Ch 39 ==========
+  - id: CASE-SAS-103
+    title: "Notewise 的 AI 功能泡沫：GPT 包裝上線後的沉默"
+    domain: saas
+    chapters: [ch-39]
+    anonymized: true
+    summary: |
+      虛構筆記 SaaS Notewise：PM 在 GPT-4 上線熱潮中快速推出「AI 摘要」，
+      3 個月後 DAU 使用率 2%，付費轉換無改善。
+      事後訪談發現：使用者的痛點是「找到筆記」，不是「讀懂筆記」。
+      用於展示「AI 功能決策必須先通過 Job-to-be-Done 測試」。
+
+  # ========== Ch 4 ==========
+  - id: CASE-HCR-103
+    title: "CareTrack 需求漂移：六個月後沒人記得當初為什麼這樣寫"
+    domain: healthcare
+    chapters: [ch-04]
+    anonymized: true
+    summary: |
+      虛構醫療 SaaS CareTrack：需求在三個 stakeholder 間漂移，
+      每週 spec 被修改一次，六個月後工程師發現 v1 和 v12 差異巨大，
+      卻沒有任何變更理由記錄。用於展示需求生命週期管理的必要性。
+
+  # ========== Ch 7 ==========
+  - id: CASE-SAS-105
+    title: "Formly 的借來的洞察：PM 用設計師的報告做了自己的決策"
+    domain: saas
+    chapters: [ch-07]
+    anonymized: true
+    summary: |
+      虛構 SaaS Formly：PM 把設計師三個月前的研究報告當作最新洞察，
+      未親自做任何用戶訪談。上線後發現使用者行為已改變，
+      報告裡的核心假設早已失效。
+
+  # ========== Ch 10 ==========
+  - id: CASE-ECM-105
+    title: "QuickBuy 的搜尋迷思：加速了搜尋，但用戶還是不買"
+    domain: ecommerce
+    chapters: [ch-10]
+    anonymized: true
+    summary: |
+      虛構電商 QuickBuy：PM 把「搜尋速度提升 40%」當功能目標，
+      工程花了三個 sprint。上線後轉換率無變化。
+      用戶訪談才發現 Job 是「3 分鐘內決定買什麼」，速度不是瓶頸。
+
+  # ========== Ch 12 ==========
+  - id: CASE-FIN-104
+    title: "ClearPay AC 漏洞：Happy Path 通過了，邊界條件在 QA 炸開"
+    domain: fintech
+    chapters: [ch-12]
+    anonymized: true
+    summary: |
+      虛構 Fintech ClearPay：PM 寫的 AC 只涵蓋成功路徑，
+      QA 在測試時發現 23 個未定義的邊界條件。上線延誤兩週。
+
+  # ========== Ch 13 ==========
+  - id: CASE-ENR-101
+    title: "GridSense MVP 膨脹：Sales 每週加一個「必要」功能"
+    domain: energy
+    chapters: [ch-13]
+    anonymized: true
+    summary: |
+      虛構能源 SaaS GridSense：原定 6 週 MVP，每週 Sales 帶來一個
+      「客戶強烈要求」的功能。第 12 週時 MVP 已是完整產品，
+      仍未上線，假設也未被驗證。
+
+  # ========== Ch 14 ==========
+  - id: CASE-SAS-106
+    title: "Taskline Roadmap 崩潰：CEO 插單，季度計畫第三週報廢"
+    domain: saas
+    chapters: [ch-14]
+    anonymized: true
+    summary: |
+      虛構 SaaS Taskline：季度 roadmap 規劃完成，工程已排好 sprint。
+      第三週 CEO 帶來競品截圖，要求立即插入新功能。
+      PM 無框架說明 tradeoff，只能全盤接受，原計畫報廢。
+
+  # ========== Ch 15 ==========
+  - id: CASE-ECM-106
+    title: "PrimeCart 的兩週承諾：PM 把估算直接告訴客戶"
+    domain: ecommerce
+    chapters: [ch-15]
+    anonymized: true
+    summary: |
+      虛構電商 PrimeCart：工程師說「大概兩週」，PM 直接告訴
+      企業客戶「兩週內交付」。實際花了五週，客戶信任受損。
+
+  # ========== Ch 16 ==========
+  - id: CASE-FIN-105
+    title: "FastLend 的遲來風險：合規問題在上線前兩週才被發現"
+    domain: fintech
+    chapters: [ch-16]
+    anonymized: true
+    summary: |
+      虛構 Fintech FastLend：專案初期做過一次風險登記，之後沒有更新。
+      上線前兩週 Legal 發現新的 PDPA 合規要求，整個 sprint 暫停。
+
+  # ========== Ch 17 ==========
+  - id: CASE-ECM-107
+    title: "ShopFlow 的提前上線：日期提前了，Rollback Plan 沒有"
+    domain: ecommerce
+    chapters: [ch-17]
+    anonymized: true
+    summary: |
+      虛構電商 ShopFlow：PM 在 CEO 壓力下將上線日期提前一週。
+      上線後出現資料同步 bug，沒有 rollback plan，修復花了 36 小時。
+
+  # ========== Ch 19 ==========
+  - id: CASE-SAS-107
+    title: "Loopline 的第三方牆：依賴 API 沒上線，自己的功能等兩週"
+    domain: saas
+    chapters: [ch-19]
+    anonymized: true
+    summary: |
+      虛構 SaaS Loopline：核心功能依賴第三方支付 API，
+      對方突然延遲兩週，PM 沒有緩衝計畫，整個 sprint 卡死。
+
+  # ========== Ch 20 ==========
+  - id: CASE-SAS-108
+    title: "Formly 的儀式走過場：Sprint Review 變成 Demo，Retro 沒有行動"
+    domain: saas
+    chapters: [ch-20]
+    anonymized: true
+    summary: |
+      虛構 SaaS Formly：Sprint Review 被 PM 當成對外 Demo，
+      Retrospective 每次 30 分鐘，行動項從未被追蹤。
+      相同問題連續三個 sprint 出現。
+
+  # ========== Ch 21 ==========
+  - id: CASE-ECM-108
+    title: "CartFlow Dual-Track 斷層：工程做完的功能沒有 Discovery 支撐"
+    domain: ecommerce
+    chapters: [ch-21]
+    anonymized: true
+    summary: |
+      虛構電商 CartFlow：Discovery 和 Delivery 各跑各的，
+      工程師完成了「智慧推薦」功能，但 Discovery 還未確認用戶是否需要。
+      上線後使用率接近零。
+
+  # ========== Ch 23 ==========
+  - id: CASE-SAS-109
+    title: "Teamline 的 Why 缺席：工程師做了技術正確但業務無用的解法"
+    domain: saas
+    chapters: [ch-23]
+    anonymized: true
+    summary: |
+      虛構 SaaS Teamline：Spec 寫了「系統要能匯出資料」，
+      沒有說明用途。工程師選擇了 CSV，PM 期待的是 PDF 報告。
+      雙方都沒有錯，但 Why 的缺席造成三週白做。
+
+  # ========== Ch 24 ==========
+  - id: CASE-ECM-109
+    title: "PrimeCart 的完成定義：PM 和設計師對「完成」的理解差了一個版本"
+    domain: ecommerce
+    chapters: [ch-24]
+    anonymized: true
+    summary: |
+      虛構電商 PrimeCart：設計師認為交付 Figma 稿即完成，
+      PM 認為要通過 usability test 才算完成。
+      功能上線後被 PM 要求重做，設計師不滿。
+
+  # ========== Ch 25 ==========
+  - id: CASE-FIN-106
+    title: "ClearPay 的上線困境：QA 發現 bug，PM 已承諾客戶日期"
+    domain: fintech
+    chapters: [ch-25]
+    anonymized: true
+    summary: |
+      虛構 Fintech ClearPay：QA 在上線前兩天發現 P2 bug，
+      但 PM 已對企業客戶承諾上線日期。上線還是延遲，兩個選擇都有代價。
+
+  # ========== Ch 26 ==========
+  - id: CASE-ECM-110
+    title: "ShopFlow 的指標戰爭：三個團隊三種「活躍用戶」定義"
+    domain: ecommerce
+    chapters: [ch-26]
+    anonymized: true
+    summary: |
+      虛構電商 ShopFlow：Growth 說活躍 = 30 天登入，
+      Product 說活躍 = 7 天使用核心功能，Data 說活躍 = 有購買行為。
+      季度報告三個數字對不起來，沒有人能說清楚產品是否在成長。
+
+  # ========== Ch 27 ==========
+  - id: CASE-SAS-110
+    title: "Notewise 的架構僵局：PM 和 SA 兩週沒有結論，專案等待"
+    domain: saas
+    chapters: [ch-27]
+    anonymized: true
+    summary: |
+      虛構 SaaS Notewise：PM 和 SA 在是否引入事件驅動架構上意見相左，
+      兩週內開了四次會仍無共識，沒有升級機制，工程師等待指令。
+
+  # ========== Ch 29 ==========
+  - id: CASE-SAS-111
+    title: "Taskline 自建 Auth：低估維護成本的 Build 決策"
+    domain: saas
+    chapters: [ch-29]
+    anonymized: true
+    summary: |
+      虛構 SaaS Taskline：PM 決定自建 SSO 認證而非使用 Auth0，
+      理由是「省錢」。一年後維護成本超過 Auth0 費用三倍，
+      且安全漏洞修補遲緩。
+
+  # ========== Ch 31 ==========
+  - id: CASE-SAS-112
+    title: "Loopline 平台困境：單一租戶功能快速複製給所有租戶"
+    domain: saas
+    chapters: [ch-31]
+    anonymized: true
+    summary: |
+      虛構 SaaS Loopline：為單一大客戶開發的客製功能，
+      PM 決定快速推給所有租戶。三個月後積累了 17 個「例外配置」，
+      架構無法維護，新功能開發速度掉了 40%。
+
+  # ========== Ch 32 ==========
+  - id: CASE-ECM-111
+    title: "QuickBuy 定價感覺：沒有數據支撐的訂閱方案上線後轉換率慘烈"
+    domain: ecommerce
+    chapters: [ch-32]
+    anonymized: true
+    summary: |
+      虛構電商 QuickBuy：PM 根據「感覺」定了三個訂閱方案，
+      上線後免費轉付費轉換率 0.8%，遠低於業界 5-8%。
+      事後才做競品定價分析，發現定價高出 40%。
+
+  # ========== Ch 33 ==========
+  - id: CASE-HCR-104
+    title: "MedNow 的 Yes Man：無法拒絕醫院 IT 主管的 PM"
+    domain: healthcare
+    chapters: [ch-33]
+    anonymized: true
+    summary: |
+      虛構醫療 SaaS MedNow：PM Jonathan Chen 面對南星醫院 IT 主管林副處長的需求從不說不，
+      Backlog 膨脹到 89 張，其中 34 張來自同一個客戶（ARR 佔比 22%）。七個月後工程主管
+      謝博閔在 sprint planning 點出資源斷裂，CTO 林恩蒂診斷為「決策缺位問題」。本章用此
+      案例展示拒絕決策流程、DACI 授權邊界、No-Log Card 記錄機制（拒絕／推遲／升級三路徑）的完整應用。
+
+  # ========== Ch 34 ==========
+  - id: CASE-ECM-112
+    title: "CartFlow GMV 陷阱：North Star 達成了，利潤卻是負的"
+    domain: ecommerce
+    chapters: [ch-34]
+    anonymized: true
+    summary: |
+      虛構電商 CartFlow：North Star Metric 設為 GMV，
+      Q3 GMV 成長 35%，超標達成。但同期退貨率 42%，淨利潤為負。
+      沒有護欄指標，成功指標本身成了陷阱。
+
+  # ========== Ch 35 ==========
+  - id: CASE-ECM-113
+    title: "ShopFlow 的提前判決：CEO 看到 A/B 早期數據就要求停止實驗"
+    domain: ecommerce
+    chapters: [ch-35]
+    anonymized: true
+    summary: |
+      虛構電商 ShopFlow：A/B 測試設計需要兩週達到統計顯著性，
+      第五天 CEO 看到 A 組轉換率較高，要求立即全量上線。
+      上線後效果消失，因為第五天的差異只是隨機波動。
+
+  # ========== Ch 36 ==========
+  - id: CASE-SAS-113
+    title: "Formly 的漏斗錯讀：轉換率下降，PM 做了錯誤的介入"
+    domain: saas
+    chapters: [ch-36]
+    anonymized: true
+    summary: |
+      虛構 SaaS Formly：漏斗分析顯示「填表 → 送出」轉換率從 72% 降至 54%。
+      PM 判斷是 UI 問題，花三個 sprint 重設計。
+      實際原因是一個驗證 bug 讓部分用戶無法送出，根本不是 UI。
+
+  # ========== Ch 37 ==========
+  - id: CASE-ECM-114
+    title: "QuickBuy 留存假象：回購率良好，但 7 天留存持續崩潰"
+    domain: ecommerce
+    chapters: [ch-37]
+    anonymized: true
+    summary: |
+      虛構電商 QuickBuy：月回購率穩定在 28%，PM 認為留存健康。
+      但 7 天留存（新用戶第一週是否再訪）只有 12%，
+      代表大量新用戶在第一週就流失。回購率掩蓋了真正的問題。
+
+  # ========== Ch 38 ==========
+  - id: CASE-SAS-114
+    title: "Taskline 覆盤走形式：看了指標，忘了假設"
+    domain: saas
+    chapters: [ch-38]
+    anonymized: true
+    summary: |
+      虛構 SaaS Taskline：每次上線後都有 post-launch review，
+      但只看實際指標，從不對比當初的假設。
+      相同的設計錯誤在三個功能上重複出現，無人察覺。
+
+  # ========== Ch 40 ==========
+  - id: CASE-FIN-107
+    title: "FastLend LLM 審批事故：沒有降級策略的 AI 信用評估"
+    domain: fintech
+    chapters: [ch-40]
+    anonymized: true
+    summary: |
+      虛構 Fintech FastLend：PM 把 LLM 引入信用評估流程，
+      沒有定義模型失效時的降級策略。某天 LLM API 不穩定，
+      導致 200 筆申請被錯誤批准，損失 320 萬元。
+
+  # ========== Ch 41 ==========
+  - id: CASE-HCR-105
+    title: "MedNow AI 診斷爭議：上線後被媒體質疑模型對特定族群有偏見"
+    domain: healthcare
+    chapters: [ch-41]
+    anonymized: true
+    summary: |
+      虛構醫療 AI MedNow：PM 推出 AI 輔助診斷功能，
+      未建立倫理審查流程。上線三個月後，媒體報導顯示
+      模型對 65 歲以上患者準確率明顯偏低，社會信任受損。
+
+  # ========== Ch 42 ==========
+  - id: CASE-FIN-108
+    title: "ClearPay GDPR 補課：PM 不知道資料最小化，蒐集了不必要的個資"
+    domain: fintech
+    chapters: [ch-42]
+    anonymized: true
+    summary: |
+      虛構 Fintech ClearPay：PM 在設計用戶 onboarding 時，
+      為了「以後可能用到」蒐集了生日、職業、收入等欄位，
+      GDPR 稽核發現違反資料最小化原則，罰款 15 萬歐元。
+
+  # ========== Ch 43 ==========
+  - id: CASE-SAS-115
+    title: "Notewise AI 依賴症：PM 讓 AI 寫 PRD，自己失去了問題理解"
+    domain: saas
+    chapters: [ch-43]
+    anonymized: true
+    summary: |
+      虛構 SaaS Notewise：PM 把所有 PRD 交給 AI 生成，
+      六個月後在 stakeholder 會議中被問到「為什麼要做這個」，
+      無法給出超出 AI 輸出的回答。團隊對 PM 的判斷力失去信任。
+
+  # ========== Ch 10 (second case) ==========
+  - id: CASE-SAS-116
+    title: "TaskFlow 試用期轉換謎題：功能不夠多，還是 Onboarding 方向錯了？"
+    domain: saas
+    chapters: [ch-10]
+    anonymized: true
+    summary: |
+      虛構 B2B 專案管理 SaaS TaskFlow：14 天試用轉換率卡在 12%，
+      比同類競品低 8 個百分點。初始假設是「功能不夠多」，
+      但 JTBD 分析後發現 Onboarding 流程是功能展示而非情境引導，
+      用戶無法在第一天把功能對應到自己的工作場景。
+      用於展示「JTBD 事前設計：用 Job 分析決定解法方向，避免錯誤的功能投入」。
