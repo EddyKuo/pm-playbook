@@ -184,4 +184,4 @@ Part VII AI 時代（下一個五年的新挑戰）
 
 ## 聯絡作者
 
-Eddy Kuo — `eddy_kuo@chiconypower.com`
+Eddy Kuo
